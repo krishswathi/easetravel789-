@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Manage My Card{% endblock %}
+{% block content %}
+<h2>Your Bus Card</h2>
+<p>Card Number: {{ card.card_number }}</p>
+<p>Balance: ${{ card.balance }}</p>
+<p>Issued Date: {{ card.issued_date }}</p>
+<p>Expiry Date: {{ card.expiry_date }}</p>
+{% endblock %}
+

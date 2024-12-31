@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h2>Welcome to the Digital Bus Card Generator</h2>
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.username }}!</p>
+<a href="{% url 'manage_card' %}">Manage My Card</a>
+{% else %}
+<p>Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a>.</p>
+{% endif %}
+{% endblock %}

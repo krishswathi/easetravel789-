@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(120deg, #c8ccca,#cdd2d4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Registration Form Container */
+    .form-container {
+        background: #c0bbbb;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+    }
+
+    /* Heading */
+    .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Input Fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+        border-color: #8fd3f4;
+    }
+
+    /* Submit Button */
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px 15px;
+        background: #8fd3f4;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background: #7892b9;
+    }
+
+    /* Footer Links */
+    .form-container .footer-links {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+
+    .form-container .footer-links a {
+        color: #4e6f80;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .form-container .footer-links a:hover {
+        color: #55635a;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your username" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+        <button type="submit">Register</button>
+    </form>
+    <div class="footer-links">
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(120deg, #9e9883, #977c74);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Login Form Container */
+    .form-container {
+        background: #c2bbbb;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+    }
+
+    /* Heading */
+    .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Input Fields */
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #c9aaa2;
+    }
+
+    /* Submit Button */
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px 15px;
+        background: #8480c4;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background: #969180;
+    }
+
+    /* Footer Links */
+    .form-container .footer-links {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+
+    .form-container .footer-links a {
+        color: #948581;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .form-container .footer-links a:hover {
+        color: #ada896;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your username" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="footer-links">
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+</div>
+{% endblock %}

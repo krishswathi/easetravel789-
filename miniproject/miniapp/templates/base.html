@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Digital Bus Card{% endblock %}</title>
+    
+</head>
+    <!-- {% load static %} -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9; /* Soft background color */
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #4c7aaf; /* Green background */
+            color: white;
+            padding: 15px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white; /* White card-style background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+               
+        <h2>Travelease</h2>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        A digital bus card is a virtual version of a physical fare card, stored on a mobile device or digital wallet. 
+        It allows users to pay for bus rides electronically by adding id number. 
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Digital Bus Card. All rights reserved.</p>
+    </footer>
+</body>
+</html>
